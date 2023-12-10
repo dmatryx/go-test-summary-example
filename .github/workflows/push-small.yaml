@@ -1,0 +1,20 @@
+name: on-push-test-app-with-shorter-summary
+
+on: push
+
+jobs:
+  test-app:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        name: Checkout Repo
+
+      - name: Setup Go 1.21.0
+        uses: actions/setup-go@v4
+        with:
+          go-version: '^1.21.0'
+
+      - name: Go Test -> Summary
+        uses: dmatryx/go-test-summary@v1
+        with:
+          hideUntestedPackages: true
