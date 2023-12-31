@@ -15,6 +15,15 @@ jobs:
           go-version: '^1.21.0'
 
       - name: Go Test -> Summary
-        uses: dmatryx/go-test-summary@v1
+        uses: dmatryx/go-test-summary@v1.1
         with:
           hideUntestedPackages: true
+          testDirectories: second-app
+
+      - name: Go Test -> Summary
+        uses: dmatryx/go-test-summary@v1.1
+        with:
+          hideUntestedPackages: true
+          testDirectories: |-
+            .
+            second-app
